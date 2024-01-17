@@ -13,7 +13,7 @@ class Cell
         self
     end
 
-    def unlink(self, bidi=true)
+    def unlink(cell, bidi=true)
         @links.delete(cell)
         cell.unlink(self, false) if bidi
         self

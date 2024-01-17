@@ -21,7 +21,7 @@ class Grid
 
     def configure_cells
         each_cell do |cell|
-            row, col = cell.row, cell.col
+            row, col = cell.row, cell.column
             
             cell.north = self[row - 1, col]
             cell.south = self[row + 1, col]
@@ -55,9 +55,35 @@ class Grid
 
     def each_cell
         each_row do |row|
-            @row.each do |cell|
+            row.each do |cell|
                 yield cell if cell
             end
         end
+    end
+
+    def to_s
+        output = "+" + "---+" * columns + "\n"
+
+        each_row do |row|
+            top = "|"
+            bottom = "+"
+
+            row.each do |cell|
+                cell = Cell.new(-1, 1) unless cell
+
+                body = "   " # 3 spaces
+                east_boundary = (cell.linked?(cell.east) ? " " : "|")
+                top << body << east_boundary
+
+                south_boundary = (cell.linked?(cell.south) ? "   " : "---") # also 3 spaces
+                corner = "+"
+                bottom << south_boundary << corner
+            end
+
+            output << top << "\n"
+            output << bottom << "\n"
+        end
+
+        output
     end
 end
