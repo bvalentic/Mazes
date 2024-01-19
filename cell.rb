@@ -1,3 +1,5 @@
+require 'distances'
+
 class Cell
     attr_reader :row, :column
     attr_accessor :north, :south, :east, :west
