@@ -96,7 +96,7 @@ class Grid
         output
     end
 
-    def to_png(cell_size = 10)
+    def to_png(cell_size = 16)
         img_width = cell_size * columns
         img_height = cell_size * rows
 

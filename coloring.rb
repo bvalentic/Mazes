@@ -2,11 +2,12 @@ require 'colored_grid'
 require 'binary_tree'
 require 'sidewinder'
 require 'aldous_broder'
+require 'wilson'
 
-grid = ColoredGrid.new(30, 30)
+grid = ColoredGrid.new(50, 50)
 AldousBroder.on(grid)
 
-start = grid[0, 0]
+start = grid[grid.rows / 2, grid.columns / 2]
 
 grid.distances = start.distances
 
