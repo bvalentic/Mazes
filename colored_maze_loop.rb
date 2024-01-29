@@ -1,5 +1,8 @@
 require 'colored_grid'
+require 'binary_tree'
+require 'sidewinder'
 require 'aldous_broder'
+require 'wilson'
 
 6.times do |n|
     grid = ColoredGrid.new(20, 20)
